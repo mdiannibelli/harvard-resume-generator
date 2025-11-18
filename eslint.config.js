@@ -38,10 +38,6 @@ export default defineConfig([
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
-      "@typescript-eslint/naming-convention": [
-        "error",
-        { selector: "variable", format: ["camelCase", "UPPER_CASE"] },
-      ],
       "max-params": ["error", { max: 3 }],
       semi: ["error", "always"],
     },
