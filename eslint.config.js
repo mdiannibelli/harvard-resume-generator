@@ -34,7 +34,6 @@ export default defineConfig([
       "@typescript-eslint/no-empty-object-type": "warn",
       "@typescript-eslint/no-empty-interface": "warn",
       "@typescript-eslint/no-require-imports": "error",
-      "unused-imports/no-unused-imports": "error",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
