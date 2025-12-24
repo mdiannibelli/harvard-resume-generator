@@ -6,7 +6,7 @@ import { EducationStep } from "./steps/EducationStep";
 import { ExperienceStep } from "./steps/ExperienceStep";
 import { SkillsStep } from "./steps/SkillsStep";
 import { FORM_STEPS } from "@/constants";
-import { useSteps } from "@/hooks";
+import { useFormStore, useSteps } from "@/hooks";
 import { useTranslation } from "react-i18next";
 
 export function ResumeGenerator() {
@@ -20,9 +20,13 @@ export function ResumeGenerator() {
   } = useSteps();
   const { t } = useTranslation();
 
+  // TODO maybe is not needed
+  const { formData } = useFormStore();
+
   const onSubmit = (data: ResumeDataSchema) => {
     // TODO implement generate cv
     console.log("data", data);
+    console.log("formData", formData);
   };
   
   const renderStep = () => {
@@ -67,7 +71,10 @@ export function ResumeGenerator() {
             {currentStep < totalSteps ? (
               <button
                 type="button"
-                onClick={nextStep}
+                onClick={(e) => {
+                  e.preventDefault();
+                  nextStep();
+                }}
                 className="px-6 py-3 bg-red-500 hover:bg-red-600 duration-300 cursor-pointer transition-all text-white rounded-lg font-medium"
               >
                 {t("GENERATE_RESUME.NEXT")}

@@ -20,7 +20,8 @@
       "@constants/*": ["./src/constants/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@models/*": ["./src/models/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@store/*": ["./src/store/*"]
     }
   }
 }

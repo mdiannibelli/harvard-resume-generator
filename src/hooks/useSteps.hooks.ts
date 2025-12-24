@@ -4,31 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm, type Path } from "react-hook-form";
 import type { ResumeDataSchema } from "@/models/resume.models";
+import { useFormStore } from "./useFormStore.hooks";
 
 export function useSteps() {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = FORM_STEPS.length;
+  const { formData, updateFormValues } = useFormStore();
 
   const formValues = useForm<ResumeDataSchema>({
     resolver: zodResolver(resumeSchema),
-    defaultValues: {
-      personalInfo: {
-        name: "",
-        lastName: "",
-        professionalTitle: "",
-        email: "",
-        phone: "",
-        country: "",
-        city: "",
-        website: "",
-        linkedin: "",
-        github: "",
-        professionalSummary: "",
-      },
-      education: [],
-      experience: [],
-      skills: [],
-    },
+    defaultValues: formData,
     mode: "onChange",
   });
 
@@ -60,6 +45,7 @@ export function useSteps() {
 
     if (isValid && currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
+      updateFormValues(formValues.getValues());
     }
   };
 

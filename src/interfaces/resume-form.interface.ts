@@ -32,7 +32,7 @@ export interface Experience {
   startDate: string;
   endDate?: string;
   inProgress: boolean;
-  description: string;
+  description?: string;
   achievements?: string[];
 }
 
