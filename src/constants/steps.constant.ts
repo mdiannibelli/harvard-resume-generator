@@ -1,0 +1,7 @@
+export const FORM_STEPS = [
+  "PERSONAL_INFO",
+  "EDUCATION",
+  "EXPERIENCE",
+  "SKILLS",
+  "CONFIGURATION",
+];

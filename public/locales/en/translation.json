@@ -1,23 +1,221 @@
 {
-    "HERO": {
-        "SUBTITLE": "generate your resume with",
-        "TITLE": "Harvard Resume Generator",
-        "CTA": "Generate Resume"
-    },
-    "NAVBAR": {
-        "HOME": "Home",
-        "ABOUT": "About",
-        "CONTACT": "Contact",
-        "LOGIN": "Login",
-        "LOGIN_2": "Login with your account",
-        "GENERATE_RESUME": "Generate resume",
-        "OR": "or"
-    },
-    "FOOTER": {
-        "COPYRIGHT": "© 2025 Harvard Resume Generator. All rights reserved.",
-        "LINKS": {
-            "CONTRIBUTE": "Contribute",
-            "DONATE": "Donate"
-        }
+  "HERO": {
+    "SUBTITLE": "generate your resume with",
+    "TITLE": "Harvard Resume Generator",
+    "CTA": "Generate Resume"
+  },
+  "NAVBAR": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "CONTACT": "Contact",
+    "LOGIN": "Login",
+    "LOGIN_2": "Login with your account",
+    "GENERATE_RESUME": "Generate resume",
+    "OR": "or"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2025 Harvard Resume Generator. All rights reserved.",
+    "LINKS": {
+      "CONTRIBUTE": "Contribute",
+      "DONATE": "Donate"
     }
+  },
+  "GENERATE_RESUME": {
+    "FORM_STEPS": {
+      "PERSONAL_INFO": {
+        "TITLE": "Personal Info",
+        "FIELDS": {
+          "NAME": "Name",
+          "NAME_PLACEHOLDER": "John",
+          "LAST_NAME": "Last name",
+          "LAST_NAME_PLACEHOLDER": "Doe",
+          "EMAIL": "Email",
+          "EMAIL_PLACEHOLDER": "john.doe@example.com",
+          "PROFESSIONAL_TITLE": "Professional title",
+          "PROFESSIONAL_TITLE_PLACEHOLDER": "Software Engineer",
+          "PHONE": "Phone",
+          "PHONE_PLACEHOLDER": "+1 234 567 8900",
+          "COUNTRY": "Country",
+          "COUNTRY_PLACEHOLDER": "United States",
+          "CITY": "City",
+          "CITY_PLACEHOLDER": "New York",
+          "WEBSITE": "Website",
+          "WEBSITE_PLACEHOLDER": "https://john.doe.com",
+          "LINKEDIN": "LinkedIn",
+          "LINKEDIN_PLACEHOLDER": "https://linkedin.com/in/john-doe",
+          "GITHUB": "GitHub",
+          "GITHUB_PLACEHOLDER": "https://github.com/john-doe",
+          "BEHANCE": "Behance",
+          "BEHANCE_PLACEHOLDER": "https://behance.net/john-doe",
+          "PROFESSIONAL_SUMMARY": "Professional summary",
+          "PROFESSIONAL_SUMMARY_PLACEHOLDER": "Describe your professional experience, skills and career goals..."
+        }
+      },
+      "EDUCATION": {
+        "TITLE": "Education",
+        "BUTTONS": {
+          "ADD": "+ Add education",
+          "DELETE": "Delete",
+          "SAVE": "Save"
+        },
+        "NO_EDUCATION_ADDED": "No education added. Click 'Add Education' to start.",
+        "FIELDS": {
+          "INSTITUTION": "Institution",
+          "INSTITUTION_PLACEHOLDER": "Harvard University",
+          "TITLE": "Title",
+          "TITLE_PLACEHOLDER": "Computer Science",
+          "START_DATE": "Start date",
+          "START_DATE_PLACEHOLDER": "Select date",
+          "END_DATE": "End date",
+          "END_DATE_PLACEHOLDER": "Select date",
+          "IN_PROGRESS": "In progress",
+          "DESCRIPTION": "Description",
+          "DESCRIPTION_PLACEHOLDER": "Describe your education..."
+        }
+      },
+      "EXPERIENCE": {
+        "TITLE": "Experience",
+        "BUTTONS": {
+          "ADD": "+ Add experience",
+          "DELETE": "Delete",
+          "SAVE": "Save"
+        },
+        "NO_EXPERIENCE_ADDED": "No experience added. Click 'Add Experience' to start.",
+        "FIELDS": {
+          "COMPANY": "Company",
+          "COMPANY_PLACEHOLDER": "Google Inc.",
+          "POSITION": "Position",
+          "POSITION_PLACEHOLDER": "Senior Developer",
+          "START_DATE": "Start date",
+          "START_DATE_PLACEHOLDER": "Select date",
+          "END_DATE": "End date",
+          "END_DATE_PLACEHOLDER": "Select date",
+          "IN_PROGRESS": "Current job",
+          "DESCRIPTION": "Description",
+          "DESCRIPTION_PLACEHOLDER": "Describe your responsibilities and achievements in this position..."
+        }
+      },
+      "SKILLS": {
+        "TITLE": "Skills",
+        "ITEM": "Skill #",
+        "FIELDS": {
+          "ADD_SKILL": "Add skill",
+          "NAME": "Name",
+          "NAME_PLACEHOLDER": "Skill name",
+          "LEVEL": "Level",
+          "LEVEL_PLACEHOLDER": "Select level"
+        },
+        "CATEGORIES": {
+          "PROGRAMMING_LANGUAGES": "Programming Languages",
+          "PROGRAMMING_LANGUAGES_DESCRIPTION": "Programming languages are the foundation of modern software development. They are used to create the logic and functionality of applications.",
+          "FRAMEWORKS": "Frameworks",
+          "FRAMEWORKS_DESCRIPTION": "Frameworks are libraries that provide a foundation for building applications. They are used to create the structure and functionality of applications.",
+          "DATABASES": "Databases",
+          "DATABASES_DESCRIPTION": "Databases are used to store and manage data. They are used to create the structure and functionality of applications.",
+          "TOOLS": "Tools",
+          "TOOLS_DESCRIPTION": "Tools are used to create the structure and functionality of applications.",
+          "CLOUD": "Cloud",
+          "DEVOPS": "DevOps",
+          "DEVOPS_DESCRIPTION": "DevOps is the practice of combining software development and IT operations. It is used to create the structure and functionality of applications.",
+          "DESIGN": "Design",
+          "DESIGN_DESCRIPTION": "Design is the practice of creating the visual and aesthetic elements of applications. It is used to create the structure and functionality of applications.",
+          "LANGUAGES": "Languages",
+          "LANGUAGES_DESCRIPTION": "Languages are used to create the logic and functionality of applications. They are used to create the structure and functionality of applications.",
+          "OTHER": "Other",
+          "OTHER_DESCRIPTION": "Other is used to create the structure and functionality of applications."
+        },
+        "BUTTONS": {
+          "ADD": "+ Add skill",
+          "DELETE": "Delete",
+          "SAVE": "Save"
+        },
+        "NO_SKILLS_ADDED": "No skills added. Click 'Add Skill' to start."
+      },
+      "LANGUAGES": {
+        "TITLE": "Languages",
+        "BUTTONS": {
+          "ADD": "+ Add language",
+          "DELETE": "Delete",
+          "SAVE": "Save"
+        },
+        "FIELDS": {
+          "ADD_LANGUAGE": "Add language",
+          "NAME": "Name",
+          "NAME_PLACEHOLDER": "Language name",
+          "LEVEL": "Level",
+          "LEVEL_PLACEHOLDER": "Select level"
+        },
+        "LEVELS": {
+          "NATIVE": "Native",
+          "B1": "B1",
+          "B2": "B2",
+          "C1": "C1",
+          "C2": "C2"
+        }
+      },
+      "CONFIGURATION": {
+        "TITLE": "Configuration",
+        "FIELDS": {
+          "LANGUAGE": "Language",
+          "LANGUAGE_LABEL": "Select the language of your resume",
+          "LANGUAGE_DESCRIPTION": "The language of your resume will be used to generate the resume in the selected language, both the titles of the sections and the dates of your studies and experiences will be translated.",
+          "en": "English",  
+          "es": "Spanish",
+          "LANGUAGE_PLACEHOLDER": "Select language",
+          "WANT_ICONS": "Want icons in your resume?",
+          "YES": "Yes",
+          "NO": "No",
+          "CLEAR_FIELDS_AFTER_GENERATION": "Do you want to clear the fields after generating the resume?"
+        }
+      }
+    },
+    "ERRORS": {
+      "REQUIRED": "{{field}} is required",
+      "INVALID": "{{field}} is invalid",
+      "MIN_LENGTH": "{{field}} must be at least {{length}} characters",
+      "INVALID_URL": "Invalid URL",
+      "INVALID_NUMBER": "Phone number must start with '+' and contain only numbers, spaces, and hyphens",
+      "INVALID_OPTION": "The selected option is not valid"
+    },
+    "GENERATE_PDF": {
+      "TITLE": "Generating PDF...",
+      "DESCRIPTION": "Please wait while we generate your resume",
+      "PRESENT": "Present",
+      "SKILLS": "Skills",
+      "PROFESSIONAL_EXPERIENCE": "Professional Experience",
+      "EDUCATION": "Education",
+      "MONTHS": {
+        "JAN": "January",
+        "FEB": "February",
+        "MAR": "March",
+        "APR": "April",
+        "MAY": "May",
+        "JUN": "June",
+        "JUL": "July",
+        "AUG": "August",
+        "SEP": "September",
+        "OCT": "October",
+        "NOV": "November",
+        "DEC": "December"
+      },
+      "LANGUAGES": {
+        "TITLE": "Languages",
+        "LEVELS": {
+          "NATIVE": "Native",
+          "B1": "Intermediate - B1",
+          "B2": "Intermediate - B2",
+          "C1": "Advanced - C1",
+          "C2": "Fluent - C2"
+        }
+      }
+    },
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "GENERATE": "Generate Resume"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Page not found",
+    "DESCRIPTION": "The page you are looking for does not exist or is currently in development.",
+    "BACK_HOME": "Back to home"
+  }
 }

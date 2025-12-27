@@ -1,23 +1,223 @@
 {
-    "HERO": {
-        "SUBTITLE": "generá tu currículum con",
-        "TITLE": "Generador de Currículum Harvard",
-        "CTA": "Generar Currículum"
-    },
-    "NAVBAR": {
-        "HOME": "Inicio",
-        "ABOUT": "Acerca de",
-        "CONTACT": "Contacto",
-        "LOGIN": "Iniciar sesión",
-        "LOGIN_2": "Iniciá sesión con tu cuenta",
-        "GENERATE_RESUME": "Generar currículum",
-        "OR": "o"
-    },
-    "FOOTER": {
-        "COPYRIGHT": "© 2025 Generador de Currículum Harvard. Todos los derechos reservados.",
-        "LINKS": {
-            "CONTRIBUTE": "Contribuir",
-            "DONATE": "Donar"
-        }
+  "HERO": {
+    "SUBTITLE": "generá tu currículum con",
+    "TITLE": "Generador de Currículum Harvard",
+    "CTA": "Generar Currículum"
+  },
+  "NAVBAR": {
+    "HOME": "Inicio",
+    "ABOUT": "Acerca de",
+    "CONTACT": "Contacto",
+    "LOGIN": "Iniciar sesión",
+    "LOGIN_2": "Iniciá sesión con tu cuenta",
+    "GENERATE_RESUME": "Generar currículum",
+    "OR": "o"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "© 2025 Generador de Currículum Harvard. Todos los derechos reservados.",
+    "LINKS": {
+      "CONTRIBUTE": "Contribuir",
+      "DONATE": "Donar"
     }
+  },
+  "GENERATE_RESUME": {
+    "FORM_STEPS": {
+      "PERSONAL_INFO": {
+        "TITLE": "Información Personal",
+        "FIELDS": {
+          "NAME": "Nombre",
+          "NAME_PLACEHOLDER": "Juan",
+          "LAST_NAME": "Apellido",
+          "LAST_NAME_PLACEHOLDER": "Álvarez",
+          "PROFESSIONAL_TITLE": "Título profesional",
+          "PROFESSIONAL_TITLE_PLACEHOLDER": "Desarrollador Full Stack",
+          "EMAIL": "Correo electrónico",
+          "EMAIL_PLACEHOLDER": "juan.alvarez@email.com",
+          "PHONE": "Teléfono",
+          "PHONE_PLACEHOLDER": "+34 666 666 666",
+          "COUNTRY": "País",
+          "COUNTRY_PLACEHOLDER": "España",
+          "CITY": "Ciudad",
+          "CITY_PLACEHOLDER": "Madrid",
+          "WEBSITE": "Sitio web",
+          "WEBSITE_PLACEHOLDER": "https://juanalvarez.com",
+          "LINKEDIN": "LinkedIn",
+          "LINKEDIN_PLACEHOLDER": "https://linkedin.com/in/juanalvarez",
+          "GITHUB": "GitHub",
+          "GITHUB_PLACEHOLDER": "https://github.com/juanalvarez",
+          "BEHANCE": "Behance",
+          "BEHANCE_PLACEHOLDER": "https://behance.net/juanalvarez",
+          "PROFESSIONAL_SUMMARY": "Resumen profesional",
+          "PROFESSIONAL_SUMMARY_PLACEHOLDER": "Describe tu experiencia profesional, habilidades y objetivos..."
+        }
+      },
+      "EDUCATION": {
+        "TITLE": "Educación",
+        "BUTTONS": {
+          "ADD": "+ Agregar educación",
+          "DELETE": "Eliminar",
+          "SAVE": "Guardar"
+        },
+        "NO_EDUCATION_ADDED": "No hay educación agregada. Haz clic en 'Agregar Educación' para comenzar.",
+        "FIELDS": {
+          "INSTITUTION": "Institución",
+          "INSTITUTION_PLACEHOLDER": "Universidad de Madrid",
+          "TITLE": "Título",
+          "TITLE_PLACEHOLDER": "Ingeniería Informática",
+          "START_DATE": "Fecha de inicio",
+          "START_DATE_PLACEHOLDER": "Seleccionar fecha",
+          "END_DATE": "Fecha de fin",
+          "END_DATE_PLACEHOLDER": "Seleccionar fecha",
+          "IN_PROGRESS": "En progreso",
+          "DESCRIPTION": "Descripción",
+          "DESCRIPTION_PLACEHOLDER": "Describe tu educación..."
+        }
+      },
+      "EXPERIENCE": {
+        "TITLE": "Experiencia",
+        "BUTTONS": {
+          "ADD": "+ Agregar experiencia",
+          "DELETE": "Eliminar",
+          "SAVE": "Guardar"
+        },
+        "NO_EXPERIENCE_ADDED": "No hay experiencia agregada. Haz clic en 'Agregar Experiencia' para comenzar.",
+        "FIELDS": {
+          "COMPANY": "Empresa",
+          "COMPANY_PLACEHOLDER": "Google Inc.",
+          "POSITION": "Puesto",
+          "POSITION_PLACEHOLDER": "Desarrollador Senior",
+          "START_DATE": "Fecha de inicio",
+          "START_DATE_PLACEHOLDER": "Seleccionar fecha",
+          "END_DATE": "Fecha de fin",
+          "END_DATE_PLACEHOLDER": "Seleccionar fecha",
+          "IN_PROGRESS": "Trabajo actual",
+          "DESCRIPTION": "Descripción",
+          "DESCRIPTION_PLACEHOLDER": "Describe tus responsabilidades y logros en este puesto..."
+        }
+      },
+      "SKILLS": {
+        "TITLE": "Habilidades",
+        "ITEM": "Habilidad #",
+        "FIELDS": {
+          "ADD_SKILL": "Agregar habilidad",
+          "NAME": "Nombre",
+          "NAME_PLACEHOLDER": "Nombre de la habilidad",
+          "LEVEL": "Nivel",
+          "LEVEL_PLACEHOLDER": "Seleccionar nivel"
+        },
+        "CATEGORIES": {
+          "PROGRAMMING_LANGUAGES": "Lenguaje de programación",
+          "PROGRAMMING_LANGUAGES_DESCRIPTION": "Los lenguajes de programación son la base de la programación moderna. Son usados para crear la lógica y la funcionalidad de las aplicaciones.",
+          "FRAMEWORKS": "Framework",
+          "FRAMEWORKS_DESCRIPTION": "Los frameworks son bibliotecas que proporcionan una base para la creación de aplicaciones. Son usados para crear la estructura y la funcionalidad de las aplicaciones.",
+          "DATABASES": "Base de datos",
+          "DATABASES_DESCRIPTION": "Las bases de datos son usadas para almacenar y gestionar datos. Son usadas para crear la estructura y la funcionalidad de las aplicaciones.",
+          "TOOLS": "Herramienta",
+          "TOOLS_DESCRIPTION": "Las herramientas son usadas para crear la estructura y la funcionalidad de las aplicaciones.",
+          "CLOUD": "Cloud",
+          "CLOUD_DESCRIPTION": "Cloud es el uso de la nube para almacenar y gestionar datos. Es usado para crear la estructura y la funcionalidad de las aplicaciones.",
+          "DEVOPS": "DevOps",
+          "DEVOPS_DESCRIPTION": "DevOps es la práctica de combinar el desarrollo de software y las operaciones de TI. Es usado para crear la estructura y la funcionalidad de las aplicaciones.",
+          "DESIGN": "Diseño",
+          "DESIGN_DESCRIPTION": "El diseño es la práctica de crear los elementos visuales y estéticos de las aplicaciones. Es usado para crear la estructura y la funcionalidad de las aplicaciones.",
+          "LANGUAGES": "Idioma",
+          "LANGUAGES_DESCRIPTION": "Los idiomas son usados para crear la lógica y la funcionalidad de las aplicaciones. Son usados para crear la estructura y la funcionalidad de las aplicaciones.",
+          "OTHER": "Otro",
+          "OTHER_DESCRIPTION": "Otro es usado para crear la estructura y la funcionalidad de las aplicaciones."
+        },
+        "BUTTONS": {
+          "ADD": "+ Agregar habilidad",
+          "DELETE": "Eliminar",
+          "SAVE": "Guardar"
+        },
+        "NO_SKILLS_ADDED": "No hay habilidades agregadas. Haz click en 'Agregar Habilidad' para comenzar."
+      },
+      "LANGUAGES": {
+        "TITLE": "Idiomas",
+        "BUTTONS": {
+          "ADD": "+ Agregar idioma",
+          "DELETE": "Eliminar",
+          "SAVE": "Guardar"
+        },
+        "FIELDS": {
+          "ADD_LANGUAGE": "Agregar idioma",
+          "NAME": "Nombre",
+          "NAME_PLACEHOLDER": "Nombre del idioma",
+          "LEVEL": "Nivel",
+          "LEVEL_PLACEHOLDER": "Seleccionar nivel"
+        },
+        "LEVELS": {
+          "NATIVE": "Nativo",
+          "B1": "B1",
+          "B2": "B2",
+          "C1": "C1",
+          "C2": "C2"
+        }
+      },
+      "CONFIGURATION": {
+        "TITLE": "Configuración",
+        "FIELDS": {
+          "ADD_SKILL": "Agregar habilidad",
+          "LANGUAGE": "Idioma",
+          "LANGUAGE_LABEL": "Seleccione el idioma de tu currículum",
+          "LANGUAGE_DESCRIPTION": "El idioma de tu currículum será usado para generar el currículum en el idioma seleccionado, tanto los títulos de las secciones como las fechas de tus estudios y experiencias serán traducidos.",
+          "en": "Inglés",
+          "es": "Español",
+          "LANGUAGE_PLACEHOLDER": "Seleccionar idioma",
+          "WANT_ICONS": "¿Quieres iconos en tu currículum?",
+          "YES": "Sí",
+          "NO": "No",
+          "CLEAR_FIELDS_AFTER_GENERATION": "¿Desea vaciar los campos después de generar el currículum?"
+        }
+      }
+    },
+    "ERRORS": {
+      "REQUIRED": "{{field}} es requerido",
+      "INVALID": "{{field}} es inválido",
+      "MIN_LENGTH": "{{field}} debe tener al menos {{length}} caracteres",
+      "INVALID_URL": "URL inválida",
+      "INVALID_NUMBER": "El número de teléfono debe empezar con '+' y contener solo números, espacios y guiones",
+      "INVALID_OPTION": "La opción seleccionada no es válida"
+    },
+    "GENERATE_PDF": {
+      "TITLE": "Generando PDF...",
+      "DESCRIPTION": "Por favor, espera mientras generamos tu currículum",
+      "PRESENT": "Presente",
+      "SKILLS": "Habilidades",
+      "PROFESSIONAL_EXPERIENCE": "Experiencia Profesional",
+      "EDUCATION": "Educación",
+      "MONTHS": {
+        "JAN": "Enero",
+        "FEB": "Febrero",
+        "MAR": "Marzo",
+        "APR": "Abril",
+        "MAY": "Mayo",
+        "JUN": "Junio",
+        "JUL": "Julio",
+        "AUG": "Agosto",
+        "SEP": "Septiembre",
+        "OCT": "Octubre",
+        "NOV": "Noviembre",
+        "DEC": "Diciembre"
+      },
+      "LANGUAGES": {
+        "TITLE": "Idiomas",
+        "LEVELS": {
+          "NATIVE": "Nativo",
+          "B1": "Intermedio - B1",
+          "B2": "Intermedio - B2",
+          "C1": "Avanzado - C1",
+          "C2": "Fluido - C2"
+        }
+      }
+    },
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente",
+    "GENERATE": "Generar Currículum"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Página no encontrada",
+    "DESCRIPTION": "La página que buscas no existe o está actualmente en desarrollo.",
+    "BACK_HOME": "Volver al inicio"
+  }
 }
