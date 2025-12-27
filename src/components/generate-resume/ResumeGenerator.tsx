@@ -66,9 +66,7 @@ export function ResumeGenerator() {
               steps={FORM_STEPS}
             />
 
-            <div className="bg-black/90 border border-white/5 rounded-xl p-0 md:p-8 ">
-              {renderStep()}
-            </div>
+            {renderStep()}
 
             <div className="flex justify-between mt-8">
               <button

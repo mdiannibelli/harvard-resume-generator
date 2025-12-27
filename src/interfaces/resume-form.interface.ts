@@ -1,4 +1,4 @@
-import type { SkillLevel } from "@/types";
+import type { LanguageLevel } from "@/types";
 
 export interface PersonalInfo {
   name: string;
@@ -39,7 +39,11 @@ export interface Experience {
 export interface Skill {
   id: string;
   name: string;
-  /* level: SkillLevel; */
+}
+
+export interface Language {
+  name: string;
+  level: LanguageLevel;
 }
 
 export interface ResumeData {
@@ -47,6 +51,7 @@ export interface ResumeData {
   education: Education[];
   experience: Experience[];
   skills: Skill[];
-  language: string;
+  languages: Language[];
+  selectedCvLanguage: string;
   wantIcons?: boolean;
 }

@@ -1,3 +1,3 @@
 export * from "./available-languages.constant";
 export * from "./steps.constant";
-export * from "./skills-levels.constant";
+export * from "./languages-levels.constant";

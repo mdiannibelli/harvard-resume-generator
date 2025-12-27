@@ -7,8 +7,9 @@ import {
   addEducation,
   addExperience,
   addSkill,
-  updateLanguage,
   updateWantIcons,
+  addLanguage,
+  updateSelectedCvLanguage,
 } from "@/store/slices/form-value.slice";
 import type { ResumeDataSchema } from "@/models/resume.models";
 
@@ -18,7 +19,7 @@ export function useFormStore() {
 
   return {
     formData,
-    language: formData.language,
+    selectedCvLanguage: formData.selectedCvLanguage,
     updateFormValues: (data: ResumeDataSchema) =>
       dispatch(updateFormValues(data)),
     updatePersonalInfo: (data: ResumeDataSchema["personalInfo"]) =>
@@ -29,8 +30,10 @@ export function useFormStore() {
       dispatch(addExperience(data)),
     updateSkills: (data: ResumeDataSchema["skills"]) =>
       dispatch(addSkill(data)),
-    updateLanguage: (data: ResumeDataSchema["language"]) =>
-      dispatch(updateLanguage(data)),
+    updateLanguages: (data: ResumeDataSchema["languages"]) =>
+      dispatch(addLanguage(data)),
+    updateSelectedCvLanguage: (data: ResumeDataSchema["selectedCvLanguage"]) =>
+      dispatch(updateSelectedCvLanguage(data)),
     updateWantIcons: (data: ResumeDataSchema["wantIcons"]) =>
       dispatch(updateWantIcons(data)),
     resetForm: () => dispatch(resetFormValues()),

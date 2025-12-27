@@ -7,3 +7,8 @@ export enum LanguagesCodeEnum {
   ENGLISH = "en",
   SPANISH = "es",
 }
+
+export enum LanguagesNameEnum {
+  ENGLISH = "English",
+  SPANISH = "Español",
+}

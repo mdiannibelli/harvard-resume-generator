@@ -9,8 +9,14 @@ interface HarvardDocumentProps {
 }
 
 export function HarvardDocument({ data }: HarvardDocumentProps) {
-  const { personalInfo, education, experience, skills, wantIcons, language } =
-    data;
+  const {
+    personalInfo,
+    education,
+    experience,
+    skills,
+    wantIcons,
+    selectedCvLanguage,
+  } = data;
   const {
     name,
     lastName,
@@ -30,7 +36,7 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
   const location = `${city}, ${country}`;
 
   const t = (key: string) => {
-    return translate(key, language);
+    return translate(key, selectedCvLanguage);
   };
 
   const getDate = (dateString: string): string => {

@@ -37,10 +37,10 @@ export function useSteps() {
         fieldsToValidate = ["experience"];
         break;
       case 4:
-        fieldsToValidate = ["skills"];
+        fieldsToValidate = ["skills", "languages"];
         break;
       case 5:
-        fieldsToValidate = ["language", "wantIcons"];
+        fieldsToValidate = ["selectedCvLanguage", "wantIcons"];
         break;
     }
 

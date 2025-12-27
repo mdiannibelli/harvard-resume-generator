@@ -104,12 +104,6 @@
           "LEVEL": "Nivel",
           "LEVEL_PLACEHOLDER": "Seleccionar nivel"
         },
-        "LEVELS": {
-          "BASIC": "Básico",
-          "INTERMEDIATE": "Intermedio",
-          "ADVANCED": "Avanzado",
-          "EXPERT": "Experto"
-        },
         "CATEGORIES": {
           "PROGRAMMING_LANGUAGES": "Lenguaje de programación",
           "PROGRAMMING_LANGUAGES_DESCRIPTION": "Los lenguajes de programación son la base de la programación moderna. Son usados para crear la lógica y la funcionalidad de las aplicaciones.",
@@ -136,6 +130,28 @@
           "SAVE": "Guardar"
         },
         "NO_SKILLS_ADDED": "No hay habilidades agregadas. Haz click en 'Agregar Habilidad' para comenzar."
+      },
+      "LANGUAGES": {
+        "TITLE": "Idiomas",
+        "BUTTONS": {
+          "ADD": "+ Agregar idioma",
+          "DELETE": "Eliminar",
+          "SAVE": "Guardar"
+        },
+        "FIELDS": {
+          "ADD_LANGUAGE": "Agregar idioma",
+          "NAME": "Nombre",
+          "NAME_PLACEHOLDER": "Nombre del idioma",
+          "LEVEL": "Nivel",
+          "LEVEL_PLACEHOLDER": "Seleccionar nivel"
+        },
+        "LEVELS": {
+          "NATIVE": "Nativo",
+          "B1": "B1",
+          "B2": "B2",
+          "C1": "C1",
+          "C2": "C2"
+        }
       },
       "CONFIGURATION": {
         "TITLE": "Configuración",

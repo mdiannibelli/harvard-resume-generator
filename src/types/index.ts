@@ -1,2 +1,2 @@
-export * from "./skill.type";
+export * from "./language-levels.type";
 export * from "./additional-areas.type";

@@ -9,7 +9,7 @@ export function useGeneratePdf() {
   const generatePDF = async (data: ResumeData) => {
     setIsGenerating(true);
     try {
-      await i18n.changeLanguage(data.language);
+      await i18n.changeLanguage(data.selectedCvLanguage);
       const blob = await generatePdfBlob(data);
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");

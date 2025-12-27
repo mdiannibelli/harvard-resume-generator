@@ -1,6 +1,6 @@
 import z from "zod";
 import { minLengthField } from "@/helpers";
-import { AvailableSkillLevelsEnum, LanguagesCodeEnum } from "@/enums";
+import { LanguagesCodeEnum, LanguagesLevelEnum } from "@/enums";
 
 export const resumeSchema = z.object({
   personalInfo: z.object({
@@ -88,7 +88,13 @@ export const resumeSchema = z.object({
       name: z.string().min(1, "GENERATE_RESUME.ERRORS.REQUIRED"),
     })
   ),
-  language: z
+  languages: z.array(
+    z.object({
+      name: z.string().min(1, "GENERATE_RESUME.ERRORS.REQUIRED"),
+      level: z.enum(Object.values(LanguagesLevelEnum)),
+    })
+  ),
+  selectedCvLanguage: z
     .enum(Object.values(LanguagesCodeEnum), {
       message: "GENERATE_RESUME.ERRORS.INVALID_OPTION",
     })
@@ -99,5 +105,4 @@ export const resumeSchema = z.object({
   wantIcons: z.boolean().optional(),
 });
 
-/* level: z.enum(Object.values(AvailableSkillLevelsEnum)), */
 export type ResumeDataSchema = z.infer<typeof resumeSchema>;

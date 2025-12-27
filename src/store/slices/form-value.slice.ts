@@ -26,7 +26,8 @@ const getInitialState = (): ResumeDataSchema => {
     education: [],
     experience: [],
     skills: [],
-    language: "",
+    languages: [],
+    selectedCvLanguage: "",
     wantIcons: false,
   };
 };
@@ -66,11 +67,17 @@ export const formValueSlice = createSlice({
     addSkill: (state, action: PayloadAction<ResumeDataSchema["skills"]>) => {
       state.skills = JSON.parse(JSON.stringify(action.payload));
     },
-    updateLanguage: (
+    addLanguage: (
       state,
-      action: PayloadAction<ResumeDataSchema["language"]>
+      action: PayloadAction<ResumeDataSchema["languages"]>
     ) => {
-      state.language = action.payload;
+      state.languages = JSON.parse(JSON.stringify(action.payload));
+    },
+    updateSelectedCvLanguage: (
+      state,
+      action: PayloadAction<ResumeDataSchema["selectedCvLanguage"]>
+    ) => {
+      state.selectedCvLanguage = action.payload;
     },
     updateWantIcons: (
       state,
@@ -88,8 +95,9 @@ export const {
   addEducation,
   addExperience,
   addSkill,
+  addLanguage,
   resetFormValues,
-  updateLanguage,
+  updateSelectedCvLanguage,
   updateWantIcons,
 } = formValueSlice.actions;
 
