@@ -19,5 +19,9 @@ export function getErrorMessage({
     });
   }
 
+  if (error.message.includes("INVALID_OPTION")) {
+    return t("GENERATE_RESUME.ERRORS.INVALID_OPTION", { field: fieldName });
+  }
+
   return t(error.message, { field: fieldName });
 }
