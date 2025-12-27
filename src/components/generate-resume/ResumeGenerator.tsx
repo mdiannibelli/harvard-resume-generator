@@ -29,8 +29,7 @@ export function ResumeGenerator() {
 
   const onSubmit = async () => {
     console.log("formData", formData);
-    const selectedLanguage = formData.language;
-    await generatePDF(formData, selectedLanguage);
+    await generatePDF(formData);
   };
 
   const renderStep = () => {
@@ -52,7 +51,7 @@ export function ResumeGenerator() {
 
   return (
     <>
-      <div className="w-full max-w-4xl mx-auto px-4 py-8">
+      <div className="w-full max-w-4xl mx-auto px-6 py-8">
         <FormProvider {...formValues}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Stepper
@@ -61,7 +60,7 @@ export function ResumeGenerator() {
               steps={FORM_STEPS}
             />
 
-            <div className="bg-black/90 border border-white/5 rounded-xl p-8 ">
+            <div className="bg-black/90 border border-white/5 rounded-xl p-0 md:p-8 ">
               {renderStep()}
             </div>
 

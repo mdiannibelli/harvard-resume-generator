@@ -4,8 +4,10 @@ import { useFormStore } from "@/hooks";
 import type { ResumeData } from "@/interfaces";
 import { getErrorMessage } from "@/utils";
 import { motion } from "motion/react";
+import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { IoWarningOutline } from "react-icons/io5";
 
 export function ConfigurationStep() {
   const {
@@ -14,10 +16,18 @@ export function ConfigurationStep() {
   } = useFormContext<ResumeData>();
 
   const { t } = useTranslation();
-  const { updateLanguage, updateWantIcons } = useFormStore();
+  const { updateLanguage, updateWantIcons, formData } = useFormStore();
+
+  const [isLanguageSelected, setIsLanguageSelected] = useState(() => {
+    return (
+      formData.language === LanguagesCodeEnum.ENGLISH ||
+      formData.language === LanguagesCodeEnum.SPANISH
+    );
+  });
 
   const handleLanguage = (value: LanguagesCodeEnum) => {
     updateLanguage(value);
+    setIsLanguageSelected(true);
   };
 
   const handleWantIcons = (value: boolean) => {
@@ -65,6 +75,17 @@ export function ConfigurationStep() {
                 stepKey: StepKeysEnum.CONFIGURATION,
               })}
             </p>
+          )}
+
+          {isLanguageSelected && (
+            <div className="p-6 bg-red-500 text-white rounded-xl flex flex-col md:flex-row gap-3 items-center mt-8">
+              <IoWarningOutline className="hidden md:block text-4xl" />
+              <p className="text-sm">
+                {t(
+                  "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.LANGUAGE_DESCRIPTION"
+                )}
+              </p>
+            </div>
           )}
         </div>
 

@@ -141,6 +141,7 @@
         "FIELDS": {
           "LANGUAGE": "Language",
           "LANGUAGE_LABEL": "Select the language of your resume",
+          "LANGUAGE_DESCRIPTION": "The language of your resume will be used to generate the resume in the selected language, both the titles of the sections and the dates of your studies and experiences will be translated.",
           "en": "English",  
           "es": "Spanish",
           "LANGUAGE_PLACEHOLDER": "Select language",

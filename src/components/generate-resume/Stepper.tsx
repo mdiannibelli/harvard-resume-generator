@@ -6,7 +6,7 @@ export function Stepper({ currentStep, totalSteps, steps }: StepperProps) {
   const { t } = useTranslation();
   return (
     <div className="w-full max-w-4xl mx-auto mb-12">
-      <div className="flex items-center justify-between relative">
+      <div className="flex items-center flex-wrap lg:flex-nowrap gap-8 mx-4 justify-center md:justify-between relative">
         <div className="absolute top-6 left-0 right-0 h-0.5 bg-white opacity-5 -z-10">
           <motion.div
             className="h-full bg-linear-to-r from-blue-500 to-purple-500"
