@@ -10,6 +10,7 @@ import {
   updateWantIcons,
   addLanguage,
   updateSelectedCvLanguage,
+  updateClearFieldsAfterGeneration,
 } from "@/store/slices/form-value.slice";
 import type { ResumeDataSchema } from "@/models/resume.models";
 
@@ -36,6 +37,9 @@ export function useFormStore() {
       dispatch(updateSelectedCvLanguage(data)),
     updateWantIcons: (data: ResumeDataSchema["wantIcons"]) =>
       dispatch(updateWantIcons(data)),
+    updateClearFieldsAfterGeneration: (
+      data: ResumeDataSchema["clearFieldsAfterGeneration"]
+    ) => dispatch(updateClearFieldsAfterGeneration(data)),
     resetForm: () => dispatch(resetFormValues()),
   };
 }

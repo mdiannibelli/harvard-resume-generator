@@ -164,7 +164,8 @@
           "LANGUAGE_PLACEHOLDER": "Select language",
           "WANT_ICONS": "Want icons in your resume?",
           "YES": "Yes",
-          "NO": "No"
+          "NO": "No",
+          "CLEAR_FIELDS_AFTER_GENERATION": "Do you want to clear the fields after generating the resume?"
         }
       }
     },
@@ -211,5 +212,10 @@
     "PREVIOUS": "Previous",
     "NEXT": "Next",
     "GENERATE": "Generate Resume"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Page not found",
+    "DESCRIPTION": "The page you are looking for does not exist or is currently in development.",
+    "BACK_HOME": "Back to home"
   }
 }

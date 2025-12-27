@@ -29,6 +29,7 @@ const getInitialState = (): ResumeDataSchema => {
     languages: [],
     selectedCvLanguage: "",
     wantIcons: false,
+    clearFieldsAfterGeneration: false,
   };
 };
 
@@ -85,7 +86,35 @@ export const formValueSlice = createSlice({
     ) => {
       state.wantIcons = action.payload;
     },
-    resetFormValues: () => getInitialState(),
+    updateClearFieldsAfterGeneration: (
+      state,
+      action: PayloadAction<ResumeDataSchema["clearFieldsAfterGeneration"]>
+    ) => {
+      state.clearFieldsAfterGeneration = action.payload;
+    },
+    resetFormValues: (state) => {
+      state.selectedCvLanguage = "";
+      state.wantIcons = false;
+      state.clearFieldsAfterGeneration = false;
+      state.personalInfo = {
+        name: "",
+        lastName: "",
+        professionalTitle: "",
+        email: "",
+        phone: "",
+        country: "",
+        city: "",
+        professionalSummary: "",
+        website: "",
+        linkedin: "",
+        github: "",
+        behance: "",
+      };
+      state.education = [];
+      state.experience = [];
+      state.skills = [];
+      state.languages = [];
+    },
   },
 });
 
@@ -99,6 +128,7 @@ export const {
   resetFormValues,
   updateSelectedCvLanguage,
   updateWantIcons,
+  updateClearFieldsAfterGeneration,
 } = formValueSlice.actions;
 
 export default formValueSlice.reducer;

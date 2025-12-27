@@ -3,6 +3,7 @@ import { AVAILABLE_LANGUAGES } from "@/constants";
 import { LanguagesCodeEnum, StepKeysEnum } from "@/enums";
 import { useFormStore } from "@/hooks";
 import type { ResumeData } from "@/interfaces";
+import { cn } from "@/lib/utils";
 import { getErrorMessage } from "@/utils";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -14,17 +15,25 @@ export function ConfigurationStep() {
   const {
     register,
     formState: { errors },
+    setValue,
   } = useFormContext<ResumeData>();
 
   const { t } = useTranslation();
-  const { updateSelectedCvLanguage, updateWantIcons, formData } =
-    useFormStore();
+  const {
+    updateSelectedCvLanguage,
+    updateWantIcons,
+    updateClearFieldsAfterGeneration,
+    formData,
+  } = useFormStore();
 
   const [isLanguageSelected, setIsLanguageSelected] = useState(() => {
     return (
       formData.selectedCvLanguage === LanguagesCodeEnum.ENGLISH ||
       formData.selectedCvLanguage === LanguagesCodeEnum.SPANISH
     );
+  });
+  const [saveMode, setSaveMode] = useState(() => {
+    return formData.clearFieldsAfterGeneration ?? false;
   });
 
   const handleLanguage = (value: LanguagesCodeEnum) => {
@@ -33,9 +42,15 @@ export function ConfigurationStep() {
   };
 
   const handleWantIcons = (value: boolean) => {
-    console.log(value);
     updateWantIcons(value);
   };
+
+  const handleClearFieldsAfterGeneration = (value: boolean) => {
+    updateClearFieldsAfterGeneration(value);
+    setValue("clearFieldsAfterGeneration", value);
+    setSaveMode(value);
+  };
+
   return (
     <StepWrapper>
       <motion.div
@@ -81,7 +96,7 @@ export function ConfigurationStep() {
             )}
 
             {isLanguageSelected && (
-              <div className="p-6 bg-red-500 text-white rounded-xl flex flex-col md:flex-row gap-3 items-center mt-8">
+              <div className="p-6 border-red-500 border bg-red-500/10 text-white rounded-xl flex flex-col md:flex-row gap-3 items-center mt-8">
                 <IoWarningOutline className="hidden md:block text-4xl" />
                 <p className="text-sm">
                   {t(
@@ -94,8 +109,7 @@ export function ConfigurationStep() {
 
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-3">
-              {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.WANT_ICONS")}{" "}
-              <span className="text-red-500">*</span>
+              {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.WANT_ICONS")}
             </label>
             <select
               {...register("wantIcons", {
@@ -118,16 +132,36 @@ export function ConfigurationStep() {
                 {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.NO")}
               </option>
             </select>
-            {errors.wantIcons && (
-              <p className="mt-3 ml-1 text-sm text-red-500">
-                {getErrorMessage({
-                  t,
-                  error: errors.wantIcons,
-                  fieldKey: "WANT_ICONS",
-                  stepKey: StepKeysEnum.CONFIGURATION,
-                })}
-              </p>
-            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-3">
+              {t(
+                "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.CLEAR_FIELDS_AFTER_GENERATION"
+              )}{" "}
+            </label>
+            <div className="flex gap-3 w-full">
+              <button
+                type="button"
+                onClick={() => handleClearFieldsAfterGeneration(true)}
+                className={cn(
+                  "cursor-pointer w-full px-6 py-3 bg-black border border-white/10 rounded-lg text-white placeholder-white/25 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-transparent transition-all",
+                  saveMode ? "bg-red-500" : "bg-black"
+                )}
+              >
+                {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.YES")}
+              </button>
+              <button
+                type="button"
+                onClick={() => handleClearFieldsAfterGeneration(false)}
+                className={cn(
+                  "cursor-pointer w-full px-6 py-3 bg-black border border-white/10 rounded-lg text-white placeholder-white/25 focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-transparent transition-all",
+                  saveMode ? "bg-black" : "bg-red-500"
+                )}
+              >
+                {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.NO")}
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>

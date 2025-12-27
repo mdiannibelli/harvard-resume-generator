@@ -54,4 +54,5 @@ export interface ResumeData {
   languages: Language[];
   selectedCvLanguage: string;
   wantIcons?: boolean;
+  clearFieldsAfterGeneration?: boolean;
 }

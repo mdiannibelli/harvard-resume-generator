@@ -103,6 +103,7 @@ export const resumeSchema = z.object({
       message: "GENERATE_RESUME.ERRORS.REQUIRED",
     }),
   wantIcons: z.boolean().optional(),
+  clearFieldsAfterGeneration: z.boolean().optional(),
 });
 
 export type ResumeDataSchema = z.infer<typeof resumeSchema>;

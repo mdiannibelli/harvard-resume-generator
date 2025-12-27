@@ -166,7 +166,8 @@
           "LANGUAGE_PLACEHOLDER": "Seleccionar idioma",
           "WANT_ICONS": "¿Quieres iconos en tu currículum?",
           "YES": "Sí",
-          "NO": "No"
+          "NO": "No",
+          "CLEAR_FIELDS_AFTER_GENERATION": "¿Desea vaciar los campos después de generar el currículum?"
         }
       }
     },
@@ -213,5 +214,10 @@
     "PREVIOUS": "Anterior",
     "NEXT": "Siguiente",
     "GENERATE": "Generar Currículum"
+  },
+  "NOT_FOUND": {
+    "TITLE": "Página no encontrada",
+    "DESCRIPTION": "La página que buscas no existe o está actualmente en desarrollo.",
+    "BACK_HOME": "Volver al inicio"
   }
 }

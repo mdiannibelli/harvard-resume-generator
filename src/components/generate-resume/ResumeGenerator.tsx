@@ -23,7 +23,7 @@ export function ResumeGenerator() {
     formValues,
   } = useSteps();
   const { t } = useTranslation();
-  const { formData } = useFormStore();
+  const { formData, resetForm } = useFormStore();
 
   // TODO Implement PDF generation screen making the user wait for the PDF to be generated
   const { generatePDF, isGenerating } = useGeneratePdf();
@@ -31,6 +31,9 @@ export function ResumeGenerator() {
   const onSubmit = async () => {
     console.log("formData", formData);
     await generatePDF(formData);
+    if (formData.clearFieldsAfterGeneration) {
+      resetForm();
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {

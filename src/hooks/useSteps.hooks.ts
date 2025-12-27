@@ -59,7 +59,11 @@ export function useSteps() {
         fieldsToValidate = ["skills", "languages"];
         break;
       case 5:
-        fieldsToValidate = ["selectedCvLanguage", "wantIcons"];
+        fieldsToValidate = [
+          "selectedCvLanguage",
+          "wantIcons",
+          "clearFieldsAfterGeneration",
+        ];
         break;
     }
 
