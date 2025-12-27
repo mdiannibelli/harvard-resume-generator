@@ -49,7 +49,7 @@ export const pdfStylesConfig = StyleSheet.create({
     transform: "translateY(-2px)",
   },
   section: {
-    marginBottom: 10,
+    marginBottom: 14,
   },
   sectionTitle: {
     fontSize: 12,
@@ -70,15 +70,23 @@ export const pdfStylesConfig = StyleSheet.create({
   skillsContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 12,
+    gap: 5,
   },
   skillItem: {
+    marginRight: 3,
+    fontSize: 10,
+    color: "#333333",
+  },
+  skillItemBold: {
+    fontWeight: "bold",
     marginRight: 6,
     fontSize: 10,
     color: "#333333",
   },
   skillSeparator: {
-    marginRight: 6,
     color: "#666666",
   },
   itemContainer: {
@@ -124,11 +132,38 @@ export const pdfStylesConfig = StyleSheet.create({
   },
   bullet: {
     marginRight: 6,
+    fontSize: 10,
+    color: "#000000",
+  },
+  languagesList: {
+    flexDirection: "column",
+    marginBottom: 12,
+    gap: 8,
+  },
+  languageItem: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginBottom: 4,
+  },
+  languageName: {
+    fontSize: 10,
+    fontWeight: "bold",
+    color: "#000000",
+    marginRight: 4,
+  },
+  languageLevelContainer: {
+    flexDirection: "row",
+    marginLeft: 16,
+    marginTop: 4,
+  },
+  languageLevel: {
+    fontSize: 10,
+    color: "#333333",
   },
   barSeparator: {
     width: "100%",
     height: 0.5,
     backgroundColor: "#333333",
-    marginBottom: 12,
+    marginBottom: 18,
   },
 });

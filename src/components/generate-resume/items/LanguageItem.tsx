@@ -74,7 +74,7 @@ export function LanguageItem() {
                 onKeyDown={handleKeyDown}
               />
               <select
-                className="w-full md:w-1/2 px-6 py-3 bg-black border border-white/10 rounded-lg text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                className="w-full md:w-1/2 px-3 py-3 bg-black border border-white/10 rounded-lg text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                 value={languageLevel}
                 onChange={(e) =>
                   setLanguageLevel(e.target.value as LanguagesLevelEnum)

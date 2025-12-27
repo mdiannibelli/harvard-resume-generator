@@ -14,7 +14,7 @@ export function useGeneratePdf() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `${data.personalInfo.name.toLowerCase()}-${data.personalInfo.lastName.toLowerCase()}-resume.pdf`;
+      link.download = `${data.personalInfo.name}_${data.personalInfo.lastName}_CV.pdf`;
       link.click();
       URL.revokeObjectURL(url);
     } catch (err) {

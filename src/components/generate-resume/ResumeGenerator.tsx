@@ -19,6 +19,7 @@ export function ResumeGenerator() {
     handleSubmit,
     prevStep,
     nextStep,
+    handleStepClick,
     formValues,
   } = useSteps();
   const { t } = useTranslation();
@@ -64,6 +65,7 @@ export function ResumeGenerator() {
               currentStep={currentStep}
               totalSteps={totalSteps}
               steps={FORM_STEPS}
+              handleStepClick={handleStepClick}
             />
 
             {renderStep()}

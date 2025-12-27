@@ -16,6 +16,7 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
     skills,
     wantIcons,
     selectedCvLanguage,
+    languages,
   } = data;
   const {
     name,
@@ -236,7 +237,7 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
           </View>
         )}
 
-        {/* Area of Expertise (Skills) */}
+        {/* Skills */}
         {skills && skills.length > 0 && (
           <View style={pdfStylesConfig.section}>
             <Text style={pdfStylesConfig.sectionTitle}>
@@ -244,12 +245,37 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
             </Text>
             <View style={pdfStylesConfig.barSeparator}></View>
             <View style={pdfStylesConfig.skillsContainer}>
-              {skills.map((skill, index) => (
+              {skills.map((skill) => (
                 <View key={skill.id} style={{ flexDirection: "row" }}>
+                  <Text style={pdfStylesConfig.skillSeparator}> • </Text>
                   <Text style={pdfStylesConfig.skillItem}>{skill.name}</Text>
-                  {index < skills.length - 1 && (
-                    <Text style={pdfStylesConfig.skillSeparator}> | </Text>
-                  )}
+                </View>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {/* Languages */}
+        {languages && languages.length > 0 && (
+          <View style={pdfStylesConfig.section}>
+            <Text style={pdfStylesConfig.sectionTitle}>
+              {t("GENERATE_RESUME.GENERATE_PDF.LANGUAGES.TITLE")}
+            </Text>
+            <View style={pdfStylesConfig.barSeparator}></View>
+            <View style={pdfStylesConfig.languagesList}>
+              {languages.map((language, index) => (
+                <View key={index} style={pdfStylesConfig.languageItem}>
+                  <Text style={pdfStylesConfig.languageName}>
+                    {language.name}:
+                  </Text>
+                  <View style={pdfStylesConfig.languageLevelContainer}>
+                    <Text style={pdfStylesConfig.bullet}>•</Text>
+                    <Text style={pdfStylesConfig.languageLevel}>
+                      {t(
+                        `GENERATE_RESUME.GENERATE_PDF.LANGUAGES.LEVELS.${language.level.toUpperCase()}`
+                      )}
+                    </Text>
+                  </View>
                 </View>
               ))}
             </View>

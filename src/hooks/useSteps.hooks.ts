@@ -24,6 +24,25 @@ export function useSteps() {
   };
 
   const nextStep = async () => {
+    const isValid = await validateStep();
+    if (isValid && currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+      updateFormValues(formValues.getValues());
+    }
+  };
+
+  const handleStepClick = async (step: number) => {
+    if (step !== currentStep) {
+      const isValid = await validateStep();
+      if (!isValid) {
+        return;
+      }
+      setCurrentStep(step);
+      updateFormValues(formValues.getValues());
+    }
+  };
+
+  const validateStep = async () => {
     let fieldsToValidate: Path<ResumeDataSchema>[] = [];
 
     switch (currentStep) {
@@ -45,17 +64,14 @@ export function useSteps() {
     }
 
     const isValid = await formValues.trigger(fieldsToValidate);
-
-    if (isValid && currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-      updateFormValues(formValues.getValues());
-    }
+    return isValid;
   };
 
   return {
     currentStep,
     totalSteps,
     setCurrentStep,
+    handleStepClick,
     prevStep,
     nextStep,
     handleSubmit: formValues.handleSubmit,

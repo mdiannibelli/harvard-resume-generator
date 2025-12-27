@@ -2,7 +2,12 @@ import type { StepperProps } from "@/interfaces";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
-export function Stepper({ currentStep, totalSteps, steps }: StepperProps) {
+export function Stepper({
+  currentStep,
+  totalSteps,
+  steps,
+  handleStepClick,
+}: StepperProps) {
   const { t } = useTranslation();
   return (
     <div className="w-full max-w-4xl mx-auto mb-12">
@@ -26,7 +31,11 @@ export function Stepper({ currentStep, totalSteps, steps }: StepperProps) {
           return (
             <div
               key={stepNumber}
-              className="flex flex-col items-center relative z-10"
+              onClick={(e) => {
+                e.preventDefault();
+                handleStepClick(stepNumber);
+              }}
+              className="flex flex-col items-center relative z-10 cursor-pointer"
             >
               <motion.div
                 className={`

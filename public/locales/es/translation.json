@@ -99,6 +99,7 @@
         "TITLE": "Habilidades",
         "ITEM": "Habilidad #",
         "FIELDS": {
+          "ADD_SKILL": "Agregar habilidad",
           "NAME": "Nombre",
           "NAME_PLACEHOLDER": "Nombre de la habilidad",
           "LEVEL": "Nivel",
@@ -197,6 +198,16 @@
         "OCT": "Octubre",
         "NOV": "Noviembre",
         "DEC": "Diciembre"
+      },
+      "LANGUAGES": {
+        "TITLE": "Idiomas",
+        "LEVELS": {
+          "NATIVE": "Nativo",
+          "B1": "Intermedio - B1",
+          "B2": "Intermedio - B2",
+          "C1": "Avanzado - C1",
+          "C2": "Fluido - C2"
+        }
       }
     },
     "PREVIOUS": "Anterior",

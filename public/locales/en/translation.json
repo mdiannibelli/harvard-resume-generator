@@ -196,6 +196,16 @@
         "OCT": "October",
         "NOV": "November",
         "DEC": "December"
+      },
+      "LANGUAGES": {
+        "TITLE": "Languages",
+        "LEVELS": {
+          "NATIVE": "Native",
+          "B1": "Intermediate - B1",
+          "B2": "Intermediate - B2",
+          "C1": "Advanced - C1",
+          "C2": "Fluent - C2"
+        }
       }
     },
     "PREVIOUS": "Previous",
