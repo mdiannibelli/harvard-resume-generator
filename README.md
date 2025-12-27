@@ -1,73 +1,203 @@
-# React + TypeScript + Vite
+# Harvard Resume Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+![React](https://img.shields.io/badge/React-19.2-blue)
+![Vite](https://img.shields.io/badge/Vite-7.2-purple)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Generate professional Harvard-style resumes with a modern and intuitive interface**
 
-## React Compiler
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Technologies](#-technologies)
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📋 Description
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Harvard Resume Generator** is a modern web application that allows you to create professional Harvard-style resumes quickly and easily. With an intuitive step-by-step interface, real-time validation, and automatic PDF generation, creating your resume has never been easier.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### ✨ Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 🎨 **Modern and responsive interface** - Elegant design with smooth animations
+- 📝 **Step-by-step form** - Intuitive guide to complete your information
+- ✅ **Real-time validation** - Automatic validation with clear error messages
+- 💾 **Automatic persistence** - Your progress is automatically saved to localStorage
+- 🌍 **Multi-language** - Support for English and Spanish
+- 📄 **PDF generation** - Export your resume in professional PDF format
+- 🎯 **Harvard format** - Internationally recognized standard design
+- 🔄 **Step navigation** - Go back and edit any section
+- 🎨 **Optional icons** - Choose whether to include icons in your resume
+- 🧹 **Automatic cleanup** - Option to clear the form after generation
+
+---
+
+## 🚀 Installation
+
+### Prerequisites
+
+Make sure you have installed on your system:
+
+- **Node.js** (version 18 or higher)
+- **pnpm** (package manager) - If you don't have it, you can install it with:
+  ```bash
+  npm install -g pnpm
+  ```
+
+### Steps to run locally
+
+#### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/mdiannibelli/harvard-resume-generator.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### 2️⃣ Navigate to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd harvard-resume-generator
 ```
+
+#### 3️⃣ Install dependencies
+
+```bash
+pnpm install
+```
+
+> **Note:** If you prefer to use `npm` instead of `pnpm`, you can run:
+>
+> ```bash
+> npm install
+> ```
+
+#### 4️⃣ Run the development server
+
+```bash
+pnpm dev
+```
+
+Or if you use npm:
+
+```bash
+npm run dev
+```
+
+#### 5️⃣ Open in browser
+
+The application will be available at `http://localhost:5173` (or the port that Vite assigns automatically).
+
+---
+
+## 📜 Available Scripts
+
+| Command        | Description                                   |
+| -------------- | --------------------------------------------- |
+| `pnpm dev`     | Starts the development server with hot-reload |
+| `pnpm build`   | Builds the project for production             |
+| `pnpm preview` | Previews the production build locally         |
+| `pnpm lint`    | Runs the linter to check the code             |
+
+---
+
+## 🛠️ Technologies
+
+This project is built with the following technologies:
+
+### Frontend
+
+- **React 19.2** - UI library
+- **TypeScript** - Static typing
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Styling framework
+- **Motion** - Smooth animations
+
+### State Management
+
+- **Redux Toolkit** - Global state
+- **React Hook Form** - Form handling
+- **Zod** - Schema validation
+
+### PDF Generation
+
+- **@react-pdf/renderer** - PDF generation
+
+### Internationalization
+
+- **i18next** - Translation system
+- **react-i18next** - React integration
+
+### Routing
+
+- **React Router DOM** - Page navigation
+
+---
+
+## 📁 Project Structure
+
+```
+harvard-resume-generator/
+├── public/
+│   └── locales/          # Translation files (en, es)
+├── src/
+│   ├── components/        # React components
+│   │   ├── document/      # PDF generation components
+│   │   ├── generate-resume/  # Form components
+│   │   └── ui/            # Reusable UI components
+│   ├── config/            # Configurations (PDF styles)
+│   ├── constants/         # Application constants
+│   ├── enums/             # TypeScript enumerations
+│   ├── helpers/           # Helper functions
+│   ├── hooks/             # Custom hooks
+│   ├── interfaces/        # TypeScript interfaces
+│   ├── layouts/           # Page layouts
+│   ├── models/            # Models and schemas (Zod)
+│   ├── pages/             # Application pages
+│   ├── store/             # Redux configuration
+│   └── utils/             # Utilities
+└── package.json
+```
+
+---
+
+## 🎯 Usage
+
+1. **Complete your personal information** - Name, professional title, contact, etc.
+2. **Add your education** - Institutions, degrees, and dates
+3. **Detail your experience** - Previous jobs with descriptions and achievements
+4. **List your skills and languages** - Technical skills and languages with levels
+5. **Configure the PDF** - Select the resume language and format options
+6. **Generate your PDF** - Download your professional resume in Harvard format
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) to learn about our development process, how to propose bug fixes and improvements, and how to build and test your changes.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**Marcos Dionel Iannibelli**
+
+- GitHub: [@mdiannibelli](https://github.com/mdiannibelli)
+- Website: [@web](https://mdiannibelli.com/en)
+- Project: [Harvard Resume Generator](https://github.com/mdiannibelli/harvard-resume-generator)
+
+---
+
+<div align="center">
+
+Made with ❤️ using React and TypeScript
+
+⭐ If you liked the project, don't forget to give it a star!
+
+</div>
