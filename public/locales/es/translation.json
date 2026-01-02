@@ -11,7 +11,11 @@
     "LOGIN": "Iniciar sesión",
     "LOGIN_2": "Iniciá sesión con tu cuenta",
     "GENERATE_RESUME": "Generar currículum",
-    "OR": "o"
+    "OR": "o",
+    "TOP_BANNER": {
+      "ANNOUNCEMENT": "⭐ Proximamente autenticación con Google y <bold>más plantillas</bold> de currículum.",
+      "READ_ANNOUNCEMENT": "Más información"
+    }
   },
   "FOOTER": {
     "COPYRIGHT": "© 2025 Generador de Currículum Harvard. Todos los derechos reservados.",

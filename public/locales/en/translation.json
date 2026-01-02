@@ -11,7 +11,11 @@
     "LOGIN": "Login",
     "LOGIN_2": "Login with your account",
     "GENERATE_RESUME": "Generate resume",
-    "OR": "or"
+    "OR": "or",
+    "TOP_BANNER": {
+      "ANNOUNCEMENT": "⭐ Coming soon authentication with Google and <bold>more resume templates</bold>.",
+      "READ_ANNOUNCEMENT": "More information"
+    }
   },
   "FOOTER": {
     "COPYRIGHT": "© 2025 Harvard Resume Generator. All rights reserved.",
