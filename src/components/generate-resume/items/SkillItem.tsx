@@ -74,7 +74,7 @@ export function SkillItem() {
               type="button"
               onClick={handleAddSkill}
               disabled={!skillInput.trim() || skillInput.trim().length < 3}
-              className="cursor-pointer w-full px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500"
+              className="px-4 py-3 cursor-pointer bg-white/5 border border-red-500 text-white rounded-lg hover:bg-red-600/25 duration-500 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500"
             >
               {t("GENERATE_RESUME.FORM_STEPS.SKILLS.BUTTONS.ADD")}
             </button>

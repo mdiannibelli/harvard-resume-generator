@@ -1,8 +1,8 @@
 import { Document, Image, Page, Text, View } from "@react-pdf/renderer";
-import { pdfStylesConfig } from "@/config/pdf-styles.config";
 import type { ContactItem, ResumeData } from "@/interfaces";
 import { translate } from "@/lib/translate";
 import { formatDate, shortenUrl } from "@/utils";
+import { GENERATE_PDF_CONFIG } from "@/config";
 
 interface HarvardDocumentProps {
   data: ResumeData;
@@ -116,29 +116,55 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
       iconUrl: "https://img.icons8.com/ios-glyphs/30/000000/behance.png",
     });
 
+  const { pdfStyles } = GENERATE_PDF_CONFIG;
+  const {
+    page,
+    header,
+    name: nameStyle,
+    title,
+    contactInfo,
+    contactItem,
+    contactIcon,
+    summary,
+    section,
+    sectionTitle,
+    barSeparator,
+    itemContainer,
+    itemHeader,
+    itemTitle,
+    itemSubtitle,
+    itemDate,
+    itemDescription,
+    bulletList,
+    bullet,
+    skillSeparator,
+    skillItem,
+    skillsContainer,
+    languagesList,
+    languageItem,
+    languageName,
+    languageLevelContainer,
+    languageLevel,
+  } = pdfStyles;
+
   return (
     <Document>
-      <Page size="A4" style={pdfStylesConfig.page}>
+      <Page size="A4" style={page}>
         {/* Header Section */}
-        <View style={pdfStylesConfig.header}>
-          <Text style={pdfStylesConfig.name}>{fullName}</Text>
-          <Text style={pdfStylesConfig.title}>{professionalTitle}</Text>
+        <View style={header}>
+          <Text style={nameStyle}>{fullName}</Text>
+          <Text style={title}>{professionalTitle}</Text>
         </View>
 
         {/* Contact Information */}
         {contactItems.length > 0 && (
-          <View style={pdfStylesConfig.contactInfo}>
+          <View style={contactInfo}>
             {contactItems.map((item, index) => (
-              <View key={index} style={pdfStylesConfig.contactItem}>
-                {wantIcons && (
-                  <Image
-                    src={item.iconUrl}
-                    style={pdfStylesConfig.contactIcon}
-                  />
-                )}
-                <Text style={pdfStylesConfig.contactItem}>{item.value}</Text>
+              <View key={index} style={contactItem}>
+                {wantIcons && <Image src={item.iconUrl} style={contactIcon} />}
+                <Text style={contactItem}>{item.value}</Text>
                 {index < contactItems.length - 1 && (
-                  <Text style={pdfStylesConfig.contactItem}> | </Text>
+                  <Text style={contactItem}> | </Text>
                 )}
               </View>
             ))}
@@ -147,30 +173,26 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
 
         {/* Professional Summary */}
         {professionalSummary && (
-          <View style={pdfStylesConfig.section}>
-            <Text style={pdfStylesConfig.summary}>{professionalSummary}</Text>
+          <View style={section}>
+            <Text style={summary}>{professionalSummary}</Text>
           </View>
         )}
 
         {/* Professional Experience */}
         {experience && experience.length > 0 && (
-          <View style={pdfStylesConfig.section}>
-            <Text style={pdfStylesConfig.sectionTitle}>
+          <View style={section}>
+            <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.PROFESSIONAL_EXPERIENCE")}
             </Text>
-            <View style={pdfStylesConfig.barSeparator}></View>
+            <View style={barSeparator}></View>
             {experience.map((exp) => (
-              <View key={exp.id} style={pdfStylesConfig.itemContainer}>
-                <View style={pdfStylesConfig.itemHeader}>
+              <View key={exp.id} style={itemContainer}>
+                <View style={itemHeader}>
                   <View style={{ flex: 1 }}>
-                    <Text style={pdfStylesConfig.itemTitle}>
-                      {exp.position}
-                    </Text>
-                    <Text style={pdfStylesConfig.itemSubtitle}>
-                      {exp.company}
-                    </Text>
+                    <Text style={itemTitle}>{exp.position}</Text>
+                    <Text style={itemSubtitle}>{exp.company}</Text>
                   </View>
-                  <Text style={pdfStylesConfig.itemDate}>
+                  <Text style={itemDate}>
                     {formatDateRange(
                       exp.startDate,
                       exp.endDate,
@@ -179,21 +201,17 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
                   </Text>
                 </View>
                 {exp.description && (
-                  <Text style={pdfStylesConfig.itemDescription}>
-                    {exp.description}
-                  </Text>
+                  <Text style={itemDescription}>{exp.description}</Text>
                 )}
                 {exp.achievements && exp.achievements.length > 0 && (
-                  <View style={pdfStylesConfig.bulletList}>
+                  <View style={bulletList}>
                     {exp.achievements.map((achievement, idx) => (
                       <View
                         key={idx}
                         style={{ flexDirection: "row", marginBottom: 3 }}
                       >
-                        <Text style={pdfStylesConfig.bullet}>•</Text>
-                        <Text style={pdfStylesConfig.bulletItem}>
-                          {achievement}
-                        </Text>
+                        <Text style={bullet}>•</Text>
+                        <Text style={itemDescription}>{achievement}</Text>
                       </View>
                     ))}
                   </View>
@@ -205,21 +223,19 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
 
         {/* Education */}
         {education && education.length > 0 && (
-          <View style={pdfStylesConfig.section}>
-            <Text style={pdfStylesConfig.sectionTitle}>
+          <View style={section}>
+            <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.EDUCATION")}
             </Text>
-            <View style={pdfStylesConfig.barSeparator}></View>
+            <View style={barSeparator}></View>
             {education.map((edu) => (
-              <View key={edu.id} style={pdfStylesConfig.itemContainer}>
-                <View style={pdfStylesConfig.itemHeader}>
+              <View key={edu.id} style={itemContainer}>
+                <View style={itemHeader}>
                   <View style={{ flex: 1 }}>
-                    <Text style={pdfStylesConfig.itemTitle}>{edu.title}</Text>
-                    <Text style={pdfStylesConfig.itemSubtitle}>
-                      {edu.institution}
-                    </Text>
+                    <Text style={itemTitle}>{edu.title}</Text>
+                    <Text style={itemSubtitle}>{edu.institution}</Text>
                   </View>
-                  <Text style={pdfStylesConfig.itemDate}>
+                  <Text style={itemDate}>
                     {formatDateRange(
                       edu.startDate,
                       edu.endDate,
@@ -228,9 +244,7 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
                   </Text>
                 </View>
                 {edu.description && (
-                  <Text style={pdfStylesConfig.itemDescription}>
-                    {edu.description}
-                  </Text>
+                  <Text style={itemDescription}>{edu.description}</Text>
                 )}
               </View>
             ))}
@@ -239,16 +253,16 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
 
         {/* Skills */}
         {skills && skills.length > 0 && (
-          <View style={pdfStylesConfig.section}>
-            <Text style={pdfStylesConfig.sectionTitle}>
+          <View style={section}>
+            <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.SKILLS")}
             </Text>
-            <View style={pdfStylesConfig.barSeparator}></View>
-            <View style={pdfStylesConfig.skillsContainer}>
+            <View style={barSeparator}></View>
+            <View style={skillsContainer}>
               {skills.map((skill) => (
                 <View key={skill.id} style={{ flexDirection: "row" }}>
-                  <Text style={pdfStylesConfig.skillSeparator}> • </Text>
-                  <Text style={pdfStylesConfig.skillItem}>{skill.name}</Text>
+                  <Text style={skillSeparator}> • </Text>
+                  <Text style={skillItem}>{skill.name}</Text>
                 </View>
               ))}
             </View>
@@ -257,20 +271,18 @@ export function HarvardDocument({ data }: HarvardDocumentProps) {
 
         {/* Languages */}
         {languages && languages.length > 0 && (
-          <View style={pdfStylesConfig.section}>
-            <Text style={pdfStylesConfig.sectionTitle}>
+          <View style={section}>
+            <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.LANGUAGES.TITLE")}
             </Text>
-            <View style={pdfStylesConfig.barSeparator}></View>
-            <View style={pdfStylesConfig.languagesList}>
+            <View style={barSeparator}></View>
+            <View style={languagesList}>
               {languages.map((language, index) => (
-                <View key={index} style={pdfStylesConfig.languageItem}>
-                  <Text style={pdfStylesConfig.languageName}>
-                    {language.name}:
-                  </Text>
-                  <View style={pdfStylesConfig.languageLevelContainer}>
-                    <Text style={pdfStylesConfig.bullet}>•</Text>
-                    <Text style={pdfStylesConfig.languageLevel}>
+                <View key={index} style={languageItem}>
+                  <Text style={languageName}>{language.name}:</Text>
+                  <View style={languageLevelContainer}>
+                    <Text style={bullet}>•</Text>
+                    <Text style={languageLevel}>
                       {t(
                         `GENERATE_RESUME.GENERATE_PDF.LANGUAGES.LEVELS.${language.level.toUpperCase()}`
                       )}

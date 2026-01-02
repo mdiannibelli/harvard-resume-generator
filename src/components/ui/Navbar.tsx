@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 export function Navbar() {
   const { t } = useTranslation();
   return (
-    <div className="absolute top-8 inset-x-0 z-50">
+    <div className="absolute top-8 inset-x-0 z-20">
       <header className="flex justify-between lg:grid lg:grid-cols-3 items-center px-6 md:px-8 lg:px-4">
         <div className="flex items-center gap-x-4 col-span-1 max-w-2xl lg:mx-auto">
           <div className="block lg:hidden">

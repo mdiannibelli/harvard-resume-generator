@@ -38,7 +38,7 @@ export function ExperienceStep() {
                 achievements: [],
               })
             }
-            className="px-4 py-2 cursor-pointer bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all font-medium"
+            className="px-4 py-2 cursor-pointer bg-white/5 border border-red-500 text-white rounded-lg hover:bg-red-600/25 duration-500 transition-all font-medium"
           >
             {t("GENERATE_RESUME.FORM_STEPS.EXPERIENCE.BUTTONS.ADD")}
           </button>

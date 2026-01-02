@@ -91,7 +91,7 @@ export function LanguageItem() {
                 disabled={
                   !languageInput.trim() || languageInput.trim().length < 3
                 }
-                className="w-full md:w-1/2 cursor-pointer px-3 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500"
+                className="w-full md:w-1/2 cursor-pointer px-3 py-3 bg-white/5 border border-red-500 text-white rounded-lg hover:bg-red-600/25 duration-500 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-red-500"
               >
                 {t("GENERATE_RESUME.FORM_STEPS.LANGUAGES.BUTTONS.ADD")}
               </button>
