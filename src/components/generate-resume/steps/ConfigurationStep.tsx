@@ -1,8 +1,8 @@
-import { StepWrapper } from "@/components";
-import { AVAILABLE_LANGUAGES } from "@/constants";
+import { Selector, StepWrapper } from "@/components";
+import { AVAILABLE_LANGUAGES, TEMPLATES } from "@/constants";
 import { LanguagesCodeEnum, StepKeysEnum } from "@/enums";
 import { useFormStore } from "@/hooks";
-import type { ResumeData } from "@/interfaces";
+import type { ResumeData, SelectedTemplate } from "@/interfaces";
 import { cn } from "@/lib/utils";
 import { getErrorMessage } from "@/utils";
 import { motion } from "motion/react";
@@ -10,12 +10,14 @@ import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { IoWarningOutline } from "react-icons/io5";
+import type { TemplateStyles } from "@/interfaces";
 
 export function ConfigurationStep() {
   const {
     register,
     formState: { errors },
     setValue,
+    trigger,
   } = useFormContext<ResumeData>();
 
   const { t } = useTranslation();
@@ -23,6 +25,7 @@ export function ConfigurationStep() {
     updateSelectedCvLanguage,
     updateWantIcons,
     updateClearFieldsAfterGeneration,
+    updateTemplate,
     formData,
   } = useFormStore();
 
@@ -39,6 +42,37 @@ export function ConfigurationStep() {
   const handleLanguage = (value: LanguagesCodeEnum) => {
     updateSelectedCvLanguage(value);
     setIsLanguageSelected(true);
+  };
+
+  const handleTemplate = (value: string) => {
+    const template = TEMPLATES.find((template) => template.id === value);
+    if (!template) {
+      const emptyTemplate: SelectedTemplate = {
+        id: "",
+        name: "",
+        description: "",
+        styles: {} as TemplateStyles,
+      };
+      setValue("template", emptyTemplate, {
+        shouldValidate: true,
+        shouldTouch: true,
+      });
+      updateTemplate(emptyTemplate);
+      trigger("template");
+      return;
+    }
+
+    updateTemplate(template);
+    setValue("template", template, { shouldValidate: true, shouldTouch: true });
+    trigger("template");
+  };
+
+  const handleTemplateSelect = (option: SelectedTemplate | null) => {
+    if (option) {
+      handleTemplate(option.id);
+    } else {
+      handleTemplate("");
+    }
   };
 
   const handleWantIcons = (value: boolean) => {
@@ -104,6 +138,34 @@ export function ConfigurationStep() {
                   )}
                 </p>
               </div>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-(--text-secondary) mb-3">
+              {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.TEMPLATE")}{" "}
+              <span className="text-(--primary)">*</span>
+            </label>
+            <input type="hidden" {...register("template")} />
+            <Selector
+              options={TEMPLATES}
+              selectedOption={formData.template?.id ? formData.template : null}
+              onSelect={handleTemplateSelect}
+              placeholder={t(
+                "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.TEMPLATE_PLACEHOLDER"
+              )}
+              error={!!errors.template}
+              onBlur={() => trigger("template")}
+            />
+            {errors.template && (
+              <p className="mt-3 ml-1 text-sm text-(--primary)">
+                {getErrorMessage({
+                  t,
+                  error: errors.template,
+                  fieldKey: "TEMPLATE",
+                  stepKey: StepKeysEnum.CONFIGURATION,
+                })}
+              </p>
             )}
           </div>
 

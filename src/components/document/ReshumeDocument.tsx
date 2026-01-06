@@ -2,7 +2,6 @@ import { Document, Image, Page, Text, View } from "@react-pdf/renderer";
 import type { ContactItem, ResumeData } from "@/interfaces";
 import { translate } from "@/lib";
 import { formatDate, shortenUrl } from "@/utils";
-import { GENERATE_PDF_CONFIG } from "@/config";
 
 interface ReshumeDocumentProps {
   data: ResumeData;
@@ -15,6 +14,7 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
     experience,
     skills,
     wantIcons,
+    template,
     selectedCvLanguage,
     languages,
   } = data;
@@ -116,7 +116,6 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
       iconUrl: "https://img.icons8.com/ios-glyphs/30/000000/behance.png",
     });
 
-  const { pdfStyles } = GENERATE_PDF_CONFIG;
   const {
     page,
     header,
@@ -128,7 +127,6 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
     summary,
     section,
     sectionTitle,
-    barSeparator,
     itemContainer,
     itemHeader,
     itemTitle,
@@ -145,7 +143,8 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
     languageName,
     languageLevelContainer,
     languageLevel,
-  } = pdfStyles;
+    separator,
+  } = template.styles;
 
   return (
     <Document>
@@ -184,7 +183,7 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
             <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.PROFESSIONAL_EXPERIENCE")}
             </Text>
-            <View style={barSeparator}></View>
+            <View style={separator} />
             {experience.map((exp) => (
               <View key={exp.id} style={itemContainer}>
                 <View style={itemHeader}>
@@ -227,7 +226,7 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
             <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.EDUCATION")}
             </Text>
-            <View style={barSeparator}></View>
+            <View style={separator} />
             {education.map((edu) => (
               <View key={edu.id} style={itemContainer}>
                 <View style={itemHeader}>
@@ -257,7 +256,7 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
             <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.SKILLS")}
             </Text>
-            <View style={barSeparator}></View>
+            <View style={separator} />
             <View style={skillsContainer}>
               {skills.map((skill) => (
                 <View key={skill.id} style={{ flexDirection: "row" }}>
@@ -275,7 +274,7 @@ export function ReshumeDocument({ data }: ReshumeDocumentProps) {
             <Text style={sectionTitle}>
               {t("GENERATE_RESUME.GENERATE_PDF.LANGUAGES.TITLE")}
             </Text>
-            <View style={barSeparator}></View>
+            <View style={separator} />
             <View style={languagesList}>
               {languages.map((language, index) => (
                 <View key={index} style={languageItem}>

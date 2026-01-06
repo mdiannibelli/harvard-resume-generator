@@ -11,6 +11,7 @@ import {
   updateSelectedCvLanguageAction,
   updateWantIconsAction,
   updateClearFieldsAfterGenerationAction,
+  updateTemplateAction,
 } from "@/store/slices/form-value.slice";
 import type { ResumeDataSchema } from "@/models/resume.models";
 
@@ -40,6 +41,8 @@ export function useFormStore() {
     updateClearFieldsAfterGeneration: (
       data: ResumeDataSchema["clearFieldsAfterGeneration"]
     ) => dispatch(updateClearFieldsAfterGenerationAction(data)),
+    updateTemplate: (data: ResumeDataSchema["template"]) =>
+      dispatch(updateTemplateAction(data)),
     resetForm: () => dispatch(resetFormValuesAction()),
   };
 }

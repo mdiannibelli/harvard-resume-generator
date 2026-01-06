@@ -22,9 +22,10 @@
   --border-light: rgba(255, 255, 255, 0.07);
   
   --success: #10b981;
-  --error: #ef4444;
+  --error: #b91010;
   --warning: #f59e0b;
   --yellow: #fffb00;
+  --premium: #ab10b9;
   --info: #3b82f6; 
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -177,6 +177,9 @@
           "en": "English",  
           "es": "Spanish",
           "LANGUAGE_PLACEHOLDER": "Select language",
+          "TEMPLATE": "Resume template",
+          "TEMPLATE_PLACEHOLDER": "Select resume template",
+          "TEMPLATE_DESCRIPTION": "The resume template will be used to generate the resume in the selected template. You can select the template that you like the most.",
           "WANT_ICONS": "Want icons in your resume?",
           "YES": "Yes",
           "NO": "No",
@@ -231,6 +234,30 @@
     "PREVIOUS": "Previous",
     "NEXT": "Next",
     "GENERATE": "Generate Resume"
+  },
+  "TEMPLATES": {
+    "CLASSIC": {
+      "NAME": "Classic",
+      "DESCRIPTION": "A clean, recruiter-approved format optimized for ATS and traditional hiring processes."
+    },
+    "MODERN": {
+      "NAME": "Modern",
+      "DESCRIPTION": "A modern layout that balances visual clarity with full ATS compatibility."
+    },
+    "EXECUTIVE": {
+      "NAME": "Executive",
+      "DESCRIPTION": "Ideal for managers, leads, and executives who need to communicate impact, leadership, and results — while staying fully ATS-compliant."
+    },
+    "IMPACT": {
+      "NAME": "Impact",
+      "DESCRIPTION": "Built for professionals who want to stand out by showcasing real impact using data, KPIs, and quantified results."
+    }
+  },
+  "DECORATORS": {
+    "FREE": "FREE",
+    "PREMIUM": "PREMIUM",
+    "UNAVAILABLE": "NO DISPONIBLE",
+    "COMING_SOON": "Coming soon..."
   },
   "NOT_FOUND": {
     "TITLE": "Page not found",

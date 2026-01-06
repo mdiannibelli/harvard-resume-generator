@@ -5,7 +5,7 @@ import { loadStateFromLocalStorage } from "../storage/form-value.storage";
 const getInitialState = (): ResumeDataSchema => {
   const savedState = loadStateFromLocalStorage();
   if (savedState) {
-    return JSON.parse(JSON.stringify(savedState));
+    return savedState;
   }
 
   return {
@@ -28,6 +28,12 @@ const getInitialState = (): ResumeDataSchema => {
     skills: [],
     languages: [],
     selectedCvLanguage: "",
+    template: {
+      id: "",
+      name: "",
+      description: "",
+      styles: {},
+    },
     wantIcons: false,
     clearFieldsAfterGeneration: false,
   };
@@ -95,6 +101,12 @@ export const formValueSlice = createSlice({
     ) => {
       state.clearFieldsAfterGeneration = action.payload;
     },
+    updateTemplateAction: (
+      state,
+      action: PayloadAction<ResumeDataSchema["template"]>
+    ) => {
+      state.template = action.payload;
+    },
     resetFormValuesAction: (state) => {
       state.selectedCvLanguage = "";
       state.wantIcons = false;
@@ -112,6 +124,12 @@ export const formValueSlice = createSlice({
         linkedin: "",
         github: "",
         behance: "",
+      };
+      state.template = {
+        id: "",
+        name: "",
+        description: "",
+        styles: {},
       };
       state.education = [];
       state.experience = [];
@@ -132,6 +150,7 @@ export const {
   updateSelectedCvLanguageAction,
   updateWantIconsAction,
   updateClearFieldsAfterGenerationAction,
+  updateTemplateAction,
 } = formValueSlice.actions;
 
 export default formValueSlice.reducer;

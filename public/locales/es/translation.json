@@ -179,6 +179,9 @@
           "en": "Inglés",
           "es": "Español",
           "LANGUAGE_PLACEHOLDER": "Seleccionar idioma",
+          "TEMPLATE": "Plantilla de currículum",
+          "TEMPLATE_PLACEHOLDER": "Seleccionar plantilla de currículum",
+          "TEMPLATE_DESCRIPTION": "La plantilla de currículum será usada para generar el currículum en la plantilla seleccionada. Puedes seleccionar la plantilla que más te guste.",
           "WANT_ICONS": "¿Quieres iconos en tu currículum?",
           "YES": "Sí",
           "NO": "No",
@@ -233,6 +236,30 @@
     "PREVIOUS": "Anterior",
     "NEXT": "Siguiente",
     "GENERATE": "Generar Currículum"
+  },
+  "TEMPLATES": {
+    "CLASSIC": {
+      "NAME": "Classic",
+      "DESCRIPTION": "Un formato limpio y aprobado por reclutadores optimizado para ATS y procesos de contratación tradicionales."
+    },
+    "MODERN": {
+      "NAME": "Moderno",
+      "DESCRIPTION": "Un diseño moderno que equilibra claridad visual con compatibilidad completa con ATS."
+    },
+    "EXECUTIVE": {
+      "NAME": "Ejecutivo",
+      "DESCRIPTION": "Ideal para gerentes, líderes y ejecutivos que necesitan comunicar impacto, liderazgo y resultados — mientras permanecen completamente compatibles con ATS."
+    },
+    "IMPACT": {
+      "NAME": "Impacto",
+      "DESCRIPTION": "Construido para profesionales que quieren destacar mostrando impacto real usando datos, KPIs y resultados cuantificados."
+    }
+  },
+  "DECORATORS": {
+    "FREE": "GRATIS",
+    "PREMIUM": "PREMIUM",
+    "UNAVAILABLE": "NO DISPONIBLE",
+    "COMING_SOON": "Próximamente..."
   },
   "NOT_FOUND": {
     "TITLE": "Página no encontrada",
