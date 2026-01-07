@@ -162,10 +162,15 @@
         },
         "LEVELS": {
           "NATIVE": "Native",
+          "NATIVE_DESCRIPTION": "Your native language.",
           "B1": "B1",
+          "B1_DESCRIPTION": "Intermediate level.",
           "B2": "B2",
+          "B2_DESCRIPTION": "Advanced level.",
           "C1": "C1",
-          "C2": "C2"
+          "C1_DESCRIPTION": "Fluent level.",
+          "C2": "C2",
+          "C2_DESCRIPTION": "Almost native level."
         }
       },
       "CONFIGURATION": {
@@ -177,12 +182,15 @@
           "en": "English",  
           "es": "Spanish",
           "LANGUAGE_PLACEHOLDER": "Select language",
+          "LEVEL_PLACEHOLDER": "Select level",
           "TEMPLATE": "Resume template",
           "TEMPLATE_PLACEHOLDER": "Select resume template",
           "TEMPLATE_DESCRIPTION": "The resume template will be used to generate the resume in the selected template. You can select the template that you like the most.",
           "WANT_ICONS": "Want icons in your resume?",
           "YES": "Yes",
           "NO": "No",
+          "YES_DESCRIPTION": "Icons are used to improve the visualization of your resume. They are used in the social media section.",
+          "NO_DESCRIPTION": "No icons will be displayed in your resume. Only your social media links will be displayed.",
           "CLEAR_FIELDS_AFTER_GENERATION": "Do you want to clear the fields after generating the resume?"
         }
       }

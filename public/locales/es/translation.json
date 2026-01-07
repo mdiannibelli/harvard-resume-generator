@@ -163,10 +163,15 @@
         },
         "LEVELS": {
           "NATIVE": "Nativo",
+          "NATIVE_DESCRIPTION": "Tu idioma nativo.",
           "B1": "B1",
+          "B1_DESCRIPTION": "Nivel intermedio..",
           "B2": "B2",
+          "B2_DESCRIPTION": "Nivel avanzado.",
           "C1": "C1",
-          "C2": "C2"
+          "C1_DESCRIPTION": "Nivel fluido.",
+          "C2": "C2",
+          "C2_DESCRIPTION": "Nivel casi nativo."
         }
       },
       "CONFIGURATION": {
@@ -179,12 +184,15 @@
           "en": "Inglés",
           "es": "Español",
           "LANGUAGE_PLACEHOLDER": "Seleccionar idioma",
+          "LEVEL_PLACEHOLDER": "Seleccionar nivel",
           "TEMPLATE": "Plantilla de currículum",
           "TEMPLATE_PLACEHOLDER": "Seleccionar plantilla de currículum",
           "TEMPLATE_DESCRIPTION": "La plantilla de currículum será usada para generar el currículum en la plantilla seleccionada. Puedes seleccionar la plantilla que más te guste.",
           "WANT_ICONS": "¿Quieres iconos en tu currículum?",
           "YES": "Sí",
           "NO": "No",
+          "YES_DESCRIPTION": "Los iconos son usados para mejorar la visualización de tu currículum. Se utilizan en el apartado de redes sociales.",
+          "NO_DESCRIPTION": "No se mostrarán iconos en tu currículum. Se mostrarán solo los enlaces de tus redes sociales.",
           "CLEAR_FIELDS_AFTER_GENERATION": "¿Desea vaciar los campos después de generar el currículum?"
         }
       }

@@ -1,8 +1,12 @@
 import { Selector, StepWrapper } from "@/components";
-import { AVAILABLE_LANGUAGES, TEMPLATES } from "@/constants";
+import { TEMPLATES } from "@/constants";
 import { LanguagesCodeEnum, StepKeysEnum } from "@/enums";
 import { useFormStore } from "@/hooks";
-import type { ResumeData, SelectedTemplate } from "@/interfaces";
+import type {
+  ResumeData,
+  SelectedTemplate,
+  SelectorOption,
+} from "@/interfaces";
 import { cn } from "@/lib/utils";
 import { getErrorMessage } from "@/utils";
 import { motion } from "motion/react";
@@ -11,6 +15,10 @@ import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { IoWarningOutline } from "react-icons/io5";
 import type { TemplateStyles } from "@/interfaces";
+import {
+  LANGUAGE_SELECTOR_OPTIONS,
+  WANT_ICONS_SELECTOR_OPTIONS,
+} from "@/constants";
 
 export function ConfigurationStep() {
   const {
@@ -75,14 +83,44 @@ export function ConfigurationStep() {
     }
   };
 
-  const handleWantIcons = (value: boolean) => {
-    updateWantIcons(value);
-  };
-
   const handleClearFieldsAfterGeneration = (value: boolean) => {
     updateClearFieldsAfterGeneration(value);
     setValue("clearFieldsAfterGeneration", value);
     setSaveMode(value);
+  };
+
+  const selectedLanguageOption =
+    LANGUAGE_SELECTOR_OPTIONS.find(
+      (opt) => opt.id === formData.selectedCvLanguage
+    ) || null;
+
+  const selectedWantIconsOption =
+    WANT_ICONS_SELECTOR_OPTIONS.find(
+      (opt) => opt.id === String(formData.wantIcons)
+    ) || null;
+
+  const handleLanguageSelect = (option: SelectorOption | null) => {
+    if (option) {
+      const languageValue = option.id as LanguagesCodeEnum;
+      handleLanguage(languageValue);
+      setValue("selectedCvLanguage", languageValue);
+      trigger("selectedCvLanguage");
+    } else {
+      setValue("selectedCvLanguage", "" as LanguagesCodeEnum);
+      trigger("selectedCvLanguage");
+    }
+  };
+
+  const handleWantIconsSelect = (option: SelectorOption | null) => {
+    if (option) {
+      const boolValue = option.id === "true";
+      updateWantIcons(boolValue);
+      setValue("wantIcons", boolValue);
+      trigger("wantIcons");
+    } else {
+      setValue("wantIcons", false);
+      trigger("wantIcons");
+    }
   };
 
   return (
@@ -99,25 +137,17 @@ export function ConfigurationStep() {
               {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.LANGUAGE")}{" "}
               <span className="text-(--primary)">*</span>
             </label>
-            <select
-              {...register("selectedCvLanguage")}
-              onChange={(e) =>
-                handleLanguage(e.target.value as LanguagesCodeEnum)
-              }
-              defaultValue=""
-              className="w-full p-6 bg-(--background-secondary) border border-(--border) rounded-lg text-(--text-primary) placeholder-(--text-secondary) focus:outline-none focus:ring-1 focus:ring-(--primary) focus:border-transparent transition-all"
-            >
-              <option value="">
-                {t(
-                  "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.LANGUAGE_PLACEHOLDER"
-                )}
-              </option>
-              {AVAILABLE_LANGUAGES.map((language) => (
-                <option key={language.value} value={language.value}>
-                  {t(language.labelFull)}
-                </option>
-              ))}
-            </select>
+            <input type="hidden" {...register("selectedCvLanguage")} />
+            <Selector
+              options={LANGUAGE_SELECTOR_OPTIONS}
+              selectedOption={selectedLanguageOption}
+              onSelect={handleLanguageSelect}
+              placeholder={t(
+                "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.LANGUAGE_PLACEHOLDER"
+              )}
+              error={!!errors.selectedCvLanguage}
+              onBlur={() => trigger("selectedCvLanguage")}
+            />
             {errors.selectedCvLanguage && (
               <p className="mt-3 ml-1 text-sm text-(--primary)">
                 {getErrorMessage({
@@ -173,27 +203,20 @@ export function ConfigurationStep() {
             <label className="block text-sm font-medium text-(--text-secondary) mb-3">
               {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.WANT_ICONS")}
             </label>
-            <select
+            <input
+              type="hidden"
               {...register("wantIcons", {
                 setValueAs: (value) => value === "true" || value === true,
               })}
-              onChange={(e) => {
-                const boolValue = e.target.value === "true";
-                handleWantIcons(boolValue);
-                register("wantIcons").onChange({
-                  target: { value: boolValue, name: "wantIcons" },
-                });
-              }}
-              defaultValue="false"
-              className="w-full p-6 bg-(--background-secondary) border border-(--border) rounded-lg text-(--text-primary) placeholder-(--text-secondary) focus:outline-none focus:ring-1 focus:ring-(--primary) focus:border-transparent transition-all"
-            >
-              <option value="true">
-                {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.YES")}
-              </option>
-              <option value="false">
-                {t("GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.NO")}
-              </option>
-            </select>
+            />
+            <Selector
+              options={WANT_ICONS_SELECTOR_OPTIONS}
+              selectedOption={selectedWantIconsOption}
+              onSelect={handleWantIconsSelect}
+              placeholder={t(
+                "GENERATE_RESUME.FORM_STEPS.CONFIGURATION.FIELDS.WANT_ICONS"
+              )}
+            />
           </div>
 
           <div>

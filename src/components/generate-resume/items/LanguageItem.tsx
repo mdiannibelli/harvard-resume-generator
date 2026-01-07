@@ -3,9 +3,10 @@ import type { ResumeData } from "@/interfaces";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "motion/react";
-import { LANGUAGES_LEVEL } from "@/constants";
+import { LANGUAGE_LEVEL_SELECTOR_OPTIONS } from "@/constants";
 import { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
+import { Selector } from "@/components/ui/Selector";
 
 export function LanguageItem() {
   const { t } = useTranslation();
@@ -20,8 +21,14 @@ export function LanguageItem() {
     LanguagesLevelEnum.NATIVE
   );
 
-  const handleAddLanguage = () => {
-    if (!languageInput.trim() || languageInput.trim().length < 3) return;
+  const disabledAddLanguage =
+    !languageInput.trim() || languageInput.trim().length < 3 || !languageLevel;
+
+  const handleAddLanguage = (
+    e: React.MouseEvent<HTMLButtonElement | HTMLInputElement>
+  ) => {
+    e.preventDefault();
+    if (disabledAddLanguage) return;
 
     const languageExists = fields.some(
       (field) => field.name.toLowerCase() === languageInput.trim().toLowerCase()
@@ -40,9 +47,13 @@ export function LanguageItem() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleAddLanguage();
+      handleAddLanguage(e as unknown as React.MouseEvent<HTMLInputElement>);
     }
   };
+
+  const selectedLanguageLevelOption =
+    LANGUAGE_LEVEL_SELECTOR_OPTIONS.find((opt) => opt.id === languageLevel) ||
+    null;
 
   return (
     <motion.div
@@ -73,25 +84,21 @@ export function LanguageItem() {
                 onChange={(e) => setLanguageInput(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              <select
-                className="w-full md:w-1/2 px-3 py-3 bg-(--background-secondary) border border-(--border) rounded-lg text-(--text-primary) focus:outline-none focus:ring-2 focus:ring-(--primary) focus:border-transparent transition-all"
-                value={languageLevel}
-                onChange={(e) =>
-                  setLanguageLevel(e.target.value as LanguagesLevelEnum)
+              <Selector
+                className="px-6 py-3 lg:w-56"
+                options={LANGUAGE_LEVEL_SELECTOR_OPTIONS}
+                selectedOption={selectedLanguageLevelOption}
+                onSelect={(option) =>
+                  setLanguageLevel(option?.id as LanguagesLevelEnum)
                 }
-              >
-                {LANGUAGES_LEVEL.map((level) => (
-                  <option key={level.value} value={level.value}>
-                    {t(level.label)}
-                  </option>
-                ))}
-              </select>
+                placeholder={t(
+                  "GENERATE_RESUME.FORM_STEPS.LANGUAGES.FIELDS.LEVEL_PLACEHOLDER"
+                )}
+              />
               <button
                 onClick={handleAddLanguage}
-                disabled={
-                  !languageInput.trim() || languageInput.trim().length < 3
-                }
-                className="w-full md:w-1/2 cursor-pointer px-3 py-3 bg-(--background-secondary) border border-(--primary) text-(--text-primary) rounded-lg hover:bg-(--primary)/25 duration-500 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-(--primary)"
+                disabled={disabledAddLanguage}
+                className="w-1/2 cursor-pointer px-3 py-3 bg-(--background-secondary) border border-(--primary) text-(--text-primary) rounded-lg hover:bg-(--primary)/25 duration-500 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-(--primary)"
               >
                 {t("GENERATE_RESUME.FORM_STEPS.LANGUAGES.BUTTONS.ADD")}
               </button>

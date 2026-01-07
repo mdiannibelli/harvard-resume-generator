@@ -6,7 +6,7 @@ export interface DecoratorType {
 export interface SelectorOption {
   id: string;
   name: string;
-  description: string;
+  description?: string;
   decorator?: DecoratorType;
 }
 
@@ -17,4 +17,5 @@ export interface Selector<T extends SelectorOption> {
   placeholder: string;
   error?: boolean;
   onBlur?: () => void;
+  className?: string;
 }

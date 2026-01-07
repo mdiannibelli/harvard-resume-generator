@@ -13,6 +13,7 @@ export function Selector<T extends SelectorOption>({
   placeholder,
   error = false,
   onBlur,
+  className,
 }: Selector<T>) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -58,7 +59,8 @@ export function Selector<T extends SelectorOption>({
         className={cn(
           "w-full p-6 bg-(--background-secondary) border rounded-lg text-(--text-primary) focus:outline-none focus:ring-1 focus:ring-(--primary) focus:border-transparent transition-all flex items-center justify-between",
           error ? "border-(--primary)" : "border-(--border)",
-          isOpen && "ring-1 ring-(--primary) border-(--primary)"
+          isOpen && "ring-1 ring-(--primary) border-(--primary)",
+          className
         )}
       >
         <div className="flex items-center gap-3 flex-1 text-left">
@@ -152,7 +154,7 @@ export function Selector<T extends SelectorOption>({
                             {t(option.name)}
                           </span>
                           <p className="text-sm text-(--text-secondary)">
-                            {t(option.description)}
+                            {option.description && t(option.description)}
                           </p>
                           {option.decorator?.label ===
                             "DECORATORS.UNAVAILABLE" && (
