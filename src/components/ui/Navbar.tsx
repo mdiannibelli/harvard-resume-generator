@@ -2,14 +2,34 @@ import { Link } from "react-router-dom";
 import { LanguageSelector, MenuResponsive } from "@components/ui";
 import { useTranslation } from "react-i18next";
 import { useNavHandling } from "@/hooks";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const { t } = useTranslation();
   const { handleHashNavigation } = useNavHandling();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="absolute inset-x-0 z-20">
-      <header className="relative top-3 flex justify-between lg:grid lg:grid-cols-4 items-center px-6 md:px-8 lg:px-4">
+    <div className="inset-x-0 z-20 transition-all duration-500 fixed">
+      <header
+        className={cn(
+          "flex justify-between lg:grid lg:grid-cols-4 items-center px-6 md:px-8 lg:px-4 transition-all duration-500",
+          isScrolled
+            ? "bg-(--background-secondary)/50 backdrop-blur-md "
+            : "relative py-3"
+        )}
+      >
         <div className="flex items-center gap-x-4 col-span-1 max-w-2xl lg:mx-auto">
           <div className="block lg:hidden">
             <MenuResponsive />
